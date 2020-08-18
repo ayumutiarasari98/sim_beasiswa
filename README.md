@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SiAkademik
 
 **SiAkademik** is an system information that can be used by school or other to help them manage their data academic. This system was created by CodeIgniter 3.1.5
@@ -42,3 +43,6 @@ Name: pis_akademik.sql
 Support
 ----------
 If you have any question, feel free to email me.
+=======
+# sim_beasiswa
+>>>>>>> cb69352f5ad4d27667ba9c71cba4e25de9b84d81
