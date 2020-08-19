@@ -18,7 +18,7 @@
                       <label class="col-sm-2 control-label">Kode Beasiswa</label>
 
                       <div class="col-sm-9">
-                        <input type="text" value="<?php echo $kelas['kd_beasiswa']; ?>" name="kd_beasiswa" readonly="true" class="form-control" placeholder="Masukkan Kode Beasiswa">
+                        <input type="text" value="<?php echo $beasiswa['kd_beasiswa']; ?>" name="kd_beasiswa" readonly="true" class="form-control" placeholder="Masukkan Kode Beasiswa">
                       </div>
                   </div>
 
@@ -26,7 +26,7 @@
                       <label class="col-sm-2 control-label">Nama Beasiswa</label>
 
                       <div class="col-sm-9">
-                        <input type="text" value="<?php echo $kelas['nama_beasiswa']; ?>" name="nama_beasiswa" class="form-control" placeholder="Masukkan Nama Beasiswa">
+                        <input type="text" value="<?php echo $beasiswa['nama_beasiswa']; ?>" name="nama_beasiswa" class="form-control" placeholder="Masukkan Nama Beasiswa">
                       </div>
                   </div>
 

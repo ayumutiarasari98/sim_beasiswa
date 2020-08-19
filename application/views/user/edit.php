@@ -49,15 +49,7 @@
                       </div>
                   </div>
 
-                  <div class="form-group">
-                      <label class="col-sm-2 control-label">Foto</label>
-
-                      <div class="col-sm-5">
-                        <input type="file" name="userfile">
-                        <img src="<?php echo base_url()."/uploads/user/".$user['foto']; ?>" width="150px">
-                      </div>
-                  </div>
-
+                
                   <div class="form-group">
                       <label class="col-sm-2 control-label"></label>
 

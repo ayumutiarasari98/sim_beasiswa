@@ -27,6 +27,8 @@
                         <th>JENIS BEASISWA</th>
                         <th>ANGKATAN</th>
                         <th>PERIODE ANGKATAN</th>
+                        <th>DURASI BEASISWA</th>
+                        <th>FILE PKS</th>
                         <th>LAMA STUDI</th>
                         <th>STATUS PERKULIAHAN</th>
                         <th>STATUS BEASISWA</th>

@@ -9,7 +9,7 @@
 		{
 			$data = array(
 				//tabel di database => name di form
-				'kd_beasiswa'            => $this->input->post('kd_kelas', TRUE),
+				'kd_beasiswa'            => $this->input->post('kd_beasiswa', TRUE),
 				'nama_beasiswa'          => $this->input->post('nama_beasiswa', TRUE),
 				'pemberi_beasiswa'		  => $this->input->post('pemberi_beasiswa', TRUE),
 				'detail_beasiswa'		  => $this->input->post('detail_beasiswa', TRUE)
@@ -21,7 +21,7 @@
 		{
 			$data = array(
 				//tabel di database => name di form
-				'nama_beasiswa'          => $this->input->post('nama_kelas', TRUE),
+				'nama_beasiswa'          => $this->input->post('nama_beasiswa', TRUE),
 				'pemberi_beasiswa'		  => $this->input->post('pemberi_beasiswa', TRUE),
 				'detail_beasiswa'		  => $this->input->post('detail_beasiswa', TRUE)
 			);

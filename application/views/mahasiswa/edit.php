@@ -88,6 +88,24 @@
                   </div>
 
                   <div class="form-group">
+                      <label class="col-sm-2 control-label">Durasi Beasiswa</label>
+
+                      <div class="col-sm-9">
+                        <input type="text" value="<?php echo $siswa['durasi_beasiswa']; ?>" name="durasi_beasiswa" class="form-control" placeholder="Durasi Beasiswa">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">File PKS</label>
+
+                      <div class="col-sm-9">
+                      <?php
+                          echo form_dropdown('file_pks', array('File PKS', 'Ada'=>'Ada', 'Tidak Ada'=>'Tidak Ada', 'S3'=>'Doktor'), null, "class='form-control'");
+                        ?>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
                   <label class="col-sm-2 control-label">Lama Studi</label>
 
                       <div class="col-sm-9">

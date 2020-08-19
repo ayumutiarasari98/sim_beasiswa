@@ -28,6 +28,8 @@
 				array('db' => 'jenis_beasiswa', 'dt' => 'jenis_beasiswa'),
 				array('db' => 'angkatan', 'dt' => 'angkatan'),
 				array('db' => 'periode_angkatan', 'dt' => 'periode_angkatan'),
+				array('db' => 'durasi_beasiswa', 'dt' => 'durasi_beasiswa'),
+				array('db' => 'file_pks', 'dt' => 'file_pks'),
 				array('db' => 'lama_studi', 'dt' => 'lama_studi'),
 				array('db' => 'status_perkuliahan', 'dt' => 'status_perkuliahan'),
 				array('db' => 'status_beasiswa', 'dt' => 'status_beasiswa'),
@@ -130,15 +132,15 @@
 		{
 			$this->load->library('CPHP_excel');
 	        $objPHPExcel = new PHPExcel();
-	        $objPHPExcel->getActiveSheet()->setCellValue('A1', 'NIM');
-	        $objPHPExcel->getActiveSheet()->setCellValue('B1', 'SISWA');
+	        $objPHPExcel->getActiveSheet()->setCellValue('A1', 'NRP');
+	        $objPHPExcel->getActiveSheet()->setCellValue('B1', 'Nama');
 	        
-	        $kelas = $_POST['kelas'];
-	        $this->db->where('kd_kelas', $kelas);
-	        $siswa = $this->db->get('tbl_siswa');
+	        $beasiswa = $_POST['beasiswa'];
+	        $this->db->where('kd_beasiswa', $beasiswa);
+	        $siswa = $this->db->get('tbl_mahasiswa');
 	        $no=2;
 	        foreach ($siswa->result() as $row){
-	            $objPHPExcel->getActiveSheet()->setCellValue('A'.$no, $row->nim);
+	            $objPHPExcel->getActiveSheet()->setCellValue('A'.$no, $row->nrp);
 	            $objPHPExcel->getActiveSheet()->setCellValue('B'.$no, $row->nama);
 	            $no++;
 	        }
@@ -156,7 +158,7 @@
 		    
 		    if(isset($_POST['preview'])){ // Jika user menekan tombol Preview pada form
 		      // lakukan upload file dengan memanggil function upload yang ada di SiswaModel.php
-		      $uploadcsv = $this->model_siswa->upload_csv($this->filename);
+		      $uploadcsv = $this->model_mahasiswa->upload_csv($this->filename);
 		      
 		      if($uploadcsv['result'] == "success"){ // Jika proses upload sukses
 		        // Load plugin PHPExcel nya
@@ -174,7 +176,7 @@
 		      }
 		    }
 		    
-		    $this->load->view('siswa/form', $data);
+		    $this->load->view('mahasiswa/form', $data);
 		  }
 
 		  function import(){
@@ -206,26 +208,49 @@
 		        // <-- END
 		        
 		        // Ambil data value yang telah di ambil dan dimasukkan ke variabel $get
-		        $nim = $get[0]; // Ambil data NIS dari kolom A di csv
+		        $nrp = $get[0]; // Ambil data NIS dari kolom A di csv
 		        $nama = $get[1]; // Ambil data nama dari kolom B di csv
-		        $tanggal_lahir = $get[2]; // Ambil data jenis kelamin dari kolom C di csv
-		        $tempat_lahir = $get[3]; // Ambil data alamat dari kolom D di csv
+		        $jenjang = $get[2]; 
+				$prodi = $get[3]; 
+				$bidang_keahlian = $get[4]; 
+				$jenis_beasiswa = $get[5]; 
+				$angkatan = $get[6]; 
+				$periode_angkatan = $get[7]; 
+				$durasi_beasiswa = $get[8]; 
+				$file_pks = $get[9]; 
+				$lama_studi = $get[10]; 
+				$status_perkuliahan = $get[11]; 
+				$status_beasiswa = $get[12]; 
+				$bank = $get[13]; 
+				$norek = $get[14]; 
+				
 		        
 		        // Kita push (add) array data ke variabel data
 		        array_push($data, [
-		          'nim'=>$nim, // Insert data nis
+		          'nrp'=>$nim, // Insert data nis
 		          'nama'=>$nama, // Insert data nama
-		          'tanggal_lahir'=>$tanggal_lahir, // Insert data jenis kelamin
-		          'tempat_lahir'=>$tempat_lahir, // Insert data alamat
+		          'jenjang'=>$jenjang, 
+				  'prodi'=>$prodi, 
+				  'bidang_keahlian'=>$bidang_keahlian,
+				  'jenis_beasiswa'=>$jenis_beasiswa, 
+				  'angkatan'=>$angkatan, 
+				  'periode_angkatan'=>$periode_angkatan, 
+				  'durasi_beasiswa'=>$durasi_beasiswa, 
+				  'file_pks'=>$file_pks, 
+				  'lama_studi'=>$lama_studi, 
+				  'status_perkuliahan'=>$status_perkuliahan, 
+				  'status_beasiswa'=>$status_beasiswa, 
+				  'bank'=>$bank, 
+				  'norek'=>$norek, 
 		        ]);
 		      }
 		      
 		      $numrow++; // Tambah 1 setiap kali looping
 		    }
 		    // Panggil fungsi insert_multiple yg telah kita buat sebelumnya di model
-		    $this->model_siswa->insert_multiple($data);
+		    $this->model_mahasiswa->insert_multiple($data);
 		    
-		    redirect("Siswa"); // Redirect ke halaman awal (ke controller siswa fungsi index)
+		    redirect("mahasiswa"); // Redirect ke halaman awal (ke controller siswa fungsi index)
 		  }
 
 		  function naik_kelas() {

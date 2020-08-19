@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2020 at 10:12 PM
+-- Generation Time: Aug 19, 2020 at 07:56 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.36
 
@@ -59,6 +59,13 @@ CREATE TABLE `tbl_beasiswa` (
   `detail_beasiswa` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_beasiswa`
+--
+
+INSERT INTO `tbl_beasiswa` (`kd_beasiswa`, `nama_beasiswa`, `pemberi_beasiswa`, `detail_beasiswa`) VALUES
+('A1', 'LPDP', 'Kementerian Keuangan Republik Indonesia', '-');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +99,8 @@ CREATE TABLE `tbl_mahasiswa` (
   `jenis_beasiswa` varchar(30) NOT NULL,
   `angkatan` varchar(5) NOT NULL,
   `periode_angkatan` varchar(30) NOT NULL,
+  `durasi_beasiswa` varchar(5) NOT NULL,
+  `file_pks` varchar(1040) NOT NULL,
   `lama_studi` varchar(30) NOT NULL,
   `status_perkuliahan` varchar(50) NOT NULL,
   `status_beasiswa` varchar(50) NOT NULL,
@@ -129,7 +138,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama_lengkap`, `username`, `password`, `id_level_user`) VALUES
-(1, 'Muhammad Zuhri', 'zuhri', 'e10adc3949ba59abbe56e057f20f883e', 1);
+(1, 'Admin Pascasarjana ITS', 'adminpasca', '14e1b600b1fd579f47433b88e8d85291', 1),
+(2, 'Admin Pascasarjana', 'adminpasca1', '202cb962ac59075b964b07152d234b70', 1);
 
 -- --------------------------------------------------------
 
@@ -243,7 +253,7 @@ ALTER TABLE `tbl_level_user`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_user_rule`
